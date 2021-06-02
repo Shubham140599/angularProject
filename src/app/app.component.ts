@@ -11,10 +11,13 @@ export class AppComponent implements OnInit {
   dataArray: any = []
   constructor(private http: HttpClient) {}
   ngOnInit() {
-    this.http.get('https://studiovity.com/api/v1/mail/getMailTemplate').subscribe((res) => {
+    this.http.get('http://studiovity.com/api/v1/mail/getMailTemplate').subscribe((res) => {
       console.log(res)
       console.log(res['template'])
       this.dataArray = res['template']
+      setTimeout(() => {
+        document.getElementById('heading' + this.dataArray._id).innerHTML = JSON.parse(this.dataArray.html)
+      }, 300)
     })
   }
 }

@@ -2,9 +2,30 @@
   <div class="col-2"></div>
   <div class="col-10">
     <div *ngFor="let data of dataArray">
-      {{data.name}}
-      <button class="btn primary-btn">save</button>
-      <div></div>
+      <div class="col d-flex pt-5 pb-5">
+        <div class="col-3">
+          {{data.name}}
+        </div>
+        <div class="col-3">
+          {{data.subject}}
+        </div>
+        <div class="col-3">
+          <button mat-button>Save</button>
+        </div>
+        <div class="col-3">
+          <button mat-button>Delete</button>
+        </div>
+      </div>
+      <hr>
+      <div class="col d-flex">
+        <div class="col-6 card">
+          {{data.html}}
+        </div>
+        <div class="col-6 card">
+          <div *ngIf="data" [innerHTML]="data.html"></div>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
